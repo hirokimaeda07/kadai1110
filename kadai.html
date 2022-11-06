@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>2回目の課題</title>
+</head>
+
+<body>
+  <header class="text hedden-next">
+    <h1>世界を変えるGEEKになるために！</h1>
+    <p>頭のトレーニングをしなさい！</p>
+  </header>
+
+  <main>
+
+    <section class="text btn-box">
+      <div>
+        <h2>問題を選ぶ</h2>
+        <div class="btn">
+          <button id="select" class="btn-push">問題を選択</button>
+        </div>
+
+        <div class="hide">
+          <div id="quizu" class="quizu">問題はなんだろ？</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1問目 -->
+    <section>
+      <div id="toi-a" class="toi-box">
+        <p>次の問いに答えなさい！</p>
+        <p class="q-title">Q:Microsoftの設立日は？</p>
+        <div>
+          <div class="toi-inner">
+            <ul>
+              <li>
+                <label for="ansa-a"><input type="checkbox" id="ansa-a" class="ansa-a">1975年4月4日</label>
+                <label for="ansa-b"><input type="checkbox" id="ansa-b" class="ansa-b">1976年4月1日</label>
+              </li>
+            </ul>
+          </div>
+          <div class="result-a result">回答</div>
+          <button id="btn-check-a" class="btn-check">確認しよう！</button>
+        </div>
+      </div>
+
+
+
+      <div id="toi-b" class="toi-box">
+        <p>次の問いに答えなさい！</p>
+        <p class="q-title">Q:プログラミングとは？</p>
+        <div>
+          <div class="toi-inner">
+            <ul>
+              <li>
+                <label for="ansb-a"><input type="checkbox" id="ansb-a" class="ansb-a">プロになる</label>
+                <label for="ansb-b"><input type="checkbox" id="ansb-b" class="ansb-b">コンピュータに指示を出す</label>
+              </li>
+            </ul>
+          </div>
+          <div class="result-b result">回答</div>
+          <button id="btn-check-b" class="btn-check">確認しよう！</button>
+        </div>
+
+      </div>
+
+
+      <!-- 3問目 -->
+
+      <div id="toi-c" class="toi-box">
+        <p>次の問いに答えなさい！</p>
+        <p class="q-title">Q:ITとはなに？</p>
+        <div>
+          <div class="toi-inner">
+            <ul>
+              <li>
+                <label for="ansc-a"><input type="checkbox" id="ansc-a" class="ansc-a">宇宙から来た生命体</label>
+                <label for="ansc-b"><input type="checkbox" id="ansc-b"
+                    class="ansc-b">インターネット等の通信とコンピュータとを屈指する情報技術</label>
+              </li>
+            </ul>
+          </div>
+          <div class="result-c result">回答</div>
+
+          <button id="btn-check-c" class="btn-check">確認しよう！</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <section>
+    <!-- jquery の読み込みタグ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <!--JavaScriptを下記に記載 -->
+
+    <script>
+
+      //アラート表示のscript
+      if (window.confirm("今日勉強がんばりますか？")) {
+        alert("では、頑張りましょう！！！");
+      } else {
+        alert("時間あるので、頑張りましょうね！！！");
+      }
+
+      //hiddenのscript
+      // $('.btn button').on('click', function () {
+      //   $(this).next().toggleClass('hidden');
+      // });
+
+      // $(function(){
+      //   $(".btn button").click(function(){
+      //     $("#toi-a").toggle();
+      //   });
+      // });
+
+
+      //初期設定で問題の非表示
+      $("#toi-a").hide();
+      $("#toi-b").hide();
+      $("#toi-c").hide();
+      $(".result").hide();
+
+      //問題を選ぶscript
+      $("#select").on("click", function () {
+        $(".hedden-next h1").hide();
+
+        const min = 0;
+        const max = 2;
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if (randomNumber === 0) {
+          $("#quizu").text("Aタイプ");
+          $('#toi-a').show(1000);
+          $('#toi-b').hide(0);
+          $('#toi-c').hide(0);
+
+        } else if (randomNumber === 1) {
+          $("#quizu").text("Bタイプ");
+          $('#toi-a').hide(0);
+          $('#toi-b').show(1000);
+          $('#toi-c').hide(0);
+
+
+        } else if (randomNumber === 2) {
+          $("#quizu").text("Cタイプ");
+          $('#toi-a').hide(0);
+          $('#toi-b').hide(0);
+          $('#toi-c').show(1000);
+        }
+      });
+
+      // 全てのチェックボックスからチェックを外す
+      $('#select').on('click', function () {
+        $('.toi-inner input[type=checkbox]').removeAttr("checked").prop("checked", false).change();
+      });
+
+      //チェックボックス1つだけ選択できるようにする
+      $(function () {
+        $('.toi-inner input[type=checkbox]').on('click', function () {
+          if ($(this).prop('checked')) {
+            // 一旦全てをクリアして再チェックする
+            $('.toi-inner input[type=checkbox]').prop('checked', false);
+            $(this).prop('checked', true);
+          }
+        });
+      });
+
+      //回答についてのscript
+      //1問目
+
+      $("#btn-check-a").click(function () {
+        $(".result").hide();
+        $(".result").show(1000);
+        if ($("#ansa-a").prop("checked")) {
+          $(".result-a").text("正解です");
+        } else {
+          $(".result-a").text("不正解です");
+        }
+      });
+
+      //2問目
+      $("#btn-check-b").click(function () {
+        $(".result").hide();
+        $(".result").show(1000);
+        if ($("#ansb-b").prop("checked")) {
+          $(".result-b").text("正解です");
+        } else {
+          $(".result-b").text("不正解です");
+        }
+      });
+
+      //3問目
+      $("#btn-check-c").click(function () {
+        $(".result").hide();
+        $(".result").show(1000);
+        if ($("#ansc-b").prop("checked")) {
+          $(".result-c").text("正解です");
+        } else {
+          $(".result-c").text("不正解です");
+        }
+      });
+
+
+      // 参考サイト https://www.kuuneruch.com/javascript01/
+
+      //問題の答えについてのscript
+      // $(".result").hide();
+      // $(function () {
+      //   $("#btn-check").click(function () {
+
+      //     const qNum = $("ul li").length;
+      //     if ($("ul li input:checked").length < qNum) {
+      //       alert("未回答です");
+      //     } else {
+      //       const typeANum = $(".ans-a:checked").length,
+      //         typeBNum = $(".ans-b:checked").length;
+      //       if (typeANum > typeBNum) {
+      //         $(".toia-a").fadeIn();
+      //       } else if (typeANum < typeBNum) {
+      //         $(".toia-b").fadeIn();
+      //       }
+      //     }
+      //   });
+      // });
+
+      // $("#toia-a").hide();
+      // $("#toia-b").hide();
+
+      // $("#btn-check").click(function () {
+      //   if ($("#ansa-a").prop("checked")) {
+      //     $("#toia-a").text("正解です");
+      //   } else {
+      //     $("#toia-a").text("不正解です");
+      //   }
+      // });
+      //参考サイト： https://itsakura.com/jquery-checkbox
+      //産雇売サイト：　https://qiita.com/bstyle6130/items/c3dfebdceaaef8e3860d
+
+      //length参考サイト：https://www.sejuku.net/blog/34465
+      //参考サイト https://sole-color-blog.com/blog/1060/
+    </script>
+  </section>
+
+</body>
+
+</html>
