@@ -1,5 +1,8 @@
+@charset "utf-8";
+
 body {
   width: auto;
+  font-family: '昔々フォント', 'Arial Narrow', Arial, sans-serif;
 }
 
 .text {
@@ -12,6 +15,7 @@ h1 {
 
 h2 {
   font: 80%;
+  text-align: center;
 }
 
 .btn-push {
@@ -31,7 +35,7 @@ h2 {
   border-bottom: solid 5px #013b75;
 }
 
-.btn{
+.btn {
   padding-bottom: 30px;
 }
 
@@ -40,7 +44,7 @@ h2 {
   transform: translateY(5px);
 }
 
-.btn-box{
+.btn-box {
   margin-bottom: px;
 }
 
@@ -66,22 +70,22 @@ input[type=checkbox] {
   margin: 0 30px 20px 0;
 }
 
-.btn-check{
-    font-size: 20px;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 240px;
-    padding: 30px 30px;
-    color: #FFF;
-    transition: 0.3s ease-in-out;
-    font-weight: bold;
-    background: #f50606;
-    border-radius: 30px;
-    border-bottom: solid 5px #750107;
-    }
+.btn-check {
+  font-size: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 240px;
+  padding: 30px 30px;
+  color: #FFF;
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+  background: #f50606;
+  border-radius: 30px;
+  border-bottom: solid 5px #750107;
+}
 
 .btn-check:hover {
   border-bottom: solid 2px #750107;
@@ -101,7 +105,7 @@ input[type=checkbox] {
   font-size: 30px;
 }
 
-.q-title{
+.q-title {
   font-size: 30px;
 }
 
@@ -109,14 +113,14 @@ input[type=checkbox] {
   display: none;
 }*/
 
-.toi-box{
+.toi-box {
   background-color: #eff3f8;
   text-align: center;
   margin: 10px 10px;
   padding: 20px 10px;
 }
 
-.toi-inner{
+.toi-inner {
   width: 100%;
   font-size: 20px;
   display: flex;
@@ -125,9 +129,115 @@ input[type=checkbox] {
   flex-direction: column;
 }
 
-.result{
+.result {
   font-size: 30px;
   font-weight: bold;
 }
 
+/* モーダルエリア */
+.hide-area {
+  display: none;
+}
 
+.hinto {
+  font: 30px;
+  padding: 20px 20px;
+}
+
+
+/* カウントダウン*/
+
+.topkadaih1 h1 {
+  font: 100px;
+  text-align: center;
+  margin: 100px 0 100px 0;
+}
+
+.countdown-box {
+  width: 30%;
+  margin: auto;
+}
+
+.countdown {
+  font-size: 30px;
+
+}
+
+.countdown-box-inner {
+  margin: 0 0 40px 0;
+  text-align: center;
+  border: 4px solid #f50606;
+  border-radius: 30px;
+}
+
+.fadeIn1 {
+  animation-name: fadeInAnime;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn2 {
+  animation-name: fadeInAnime;
+  animation-duration: 15s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn3 {
+  animation-name: fadeInAnime;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn4 {
+  animation-name: fadeInAnime;
+  animation-duration: 25s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fadeIn5 {
+  font-size: 30px;
+  animation-name: fadeInAnime;
+  animation-duration: 40s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/*チコ画像フェードアップ*/
+/*.fadeUp {
+  text-align: center;
+  animation-name: fadeUpAnime;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}  */
+
+.output {
+  size-adjust: 20%;
+  padding: 0 0 40px 0;
+}
