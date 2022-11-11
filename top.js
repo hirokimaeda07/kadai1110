@@ -44,7 +44,6 @@ $("#select").on("click", function () {
     $('#toi-b').show(1000);
     $('#toi-c').hide(0);
 
-
   } else if (randomNumber === 2) {
     $("#quizu").text("Cタイプ");
     $('#toi-a').hide(0);
@@ -77,8 +76,10 @@ $("#btn-check-a").click(function () {
   $(".result").show(1000);
   if ($("#ansa-a").prop("checked")) {
     $(".result-a").text("正解です");
-  } else {
+  } else if ($("#ansa-b").prop("checked")) {
     $(".result-a").text("不正解です");
+  } else {
+    $(".result-a").text("回答を選択してね")
   }
 });
 
@@ -88,8 +89,10 @@ $("#btn-check-b").click(function () {
   $(".result").show(1000);
   if ($("#ansb-b").prop("checked")) {
     $(".result-b").text("正解です");
-  } else {
+  } else if ($("#ansb-a").prop("checked")){
     $(".result-b").text("不正解です");
+  } else {
+    $(".result-b").text("回答を選択してね")
   }
 });
 
@@ -99,8 +102,10 @@ $("#btn-check-c").click(function () {
   $(".result").show(1000);
   if ($("#ansc-b").prop("checked")) {
     $(".result-c").text("正解です");
-  } else {
+  } else if ($('#ansc-a').prop("checked")) {
     $(".result-c").text("不正解です");
+  } else {
+    $(".result-c").text("回答を選択してね")
   }
 });
 
@@ -155,17 +160,28 @@ $(".hinto").modaal({
   }
 });
 
-//画像のモーダル
-$(".gallery").modaal({
-  type: 'image',
-  overlay_close: true,//モーダル背景クリック時に閉じるか
-  before_open: function () {// モーダルが開く前に行う動作
-    $('html').css('overflow-y', 'hidden');/*縦スクロールバーを出さない*/
-  },
-  after_close: function () {// モーダルが閉じた後に行う動作
-    $('html').css('overflow-y', 'scroll');/*縦スクロールバーを出す*/
-  }
+//チコちゃん画像モーダル
+
+$(function () {
+  $('#bottom-btn').click(function () {
+    $('#overlay,.modal-window').fadeIn();
+  });
+  $('bottom-btn').click(function () {
+    $('#overlay,.modal-window').fadeOut();
+  });
 });
+
+//画像のモーダル
+// $(".gallery").modaal({
+//   type: 'image',
+//   overlay_close: true,//モーダル背景クリック時に閉じるか
+//   before_open: function () {// モーダルが開く前に行う動作
+//     $('html').css('overflow-y', 'hidden');/*縦スクロールバーを出さない*/
+//   },
+//   after_close: function () {// モーダルが閉じた後に行う動作
+//     $('html').css('overflow-y', 'scroll');/*縦スクロールバーを出す*/
+//   }
+// });
 
 //topkadai　カウントダウン
 
@@ -185,7 +201,7 @@ let countdown = setInterval(function () {
     const difMin = Math.floor(remainTime / 1000 / 60) % 60
     const difSec = Math.floor(remainTime / 1000) % 60
 
-    // //残りの日時を上書き
+    // 残りの日時を上書き
     //elem.querySelectorAll('.countdown-year')[0].textContent = difYear
     elem.querySelectorAll('.countdown-day')[0].textContent = difDay
     elem.querySelectorAll('.countdown-hour')[0].textContent = difHour
@@ -198,16 +214,16 @@ let countdown = setInterval(function () {
 
 
   // ちこちゃん登場10秒後
-$(function () {
-  const str = '<img src="img/chikochan.jpg">';
-  setTimeout(function () {
-    $('.output').append(str);
-  }, 10000);
-});
+// $(function () {
+//   const str = '<img src="img/chikochan.jpg">';
+//   setTimeout(function () {
+//     $('.output').append(str);
+//   }, 10000);
+// });
 
-$(function () {
-  const str = '<html src ="kadai.html" >';
-  setTimeout(function () {
-    $('.kadaihe').append(str);
-  }, 10000);
-});
+// $(function () {
+//   const str = '<html src ="kadai.html" >';
+//   setTimeout(function () {
+//     $('.kadaihe').append(str);
+//   }, 10000);
+// });
